@@ -48,3 +48,18 @@ body {
     transition: all 0.5s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
+button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background-color: #2f4b30; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin: 2rem;
+  }
+
+  /* Add hover effect for better user interaction */
+  button:hover {
+    background-color: #9ebca0; /* Darker green on hover */
+  }
