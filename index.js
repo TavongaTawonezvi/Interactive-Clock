@@ -20,7 +20,7 @@ function setTime() {
     hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
 
     let time = document.querySelector('.time');
-    if(minutes.toString.length == 1){minutes = '0' + minutes};
+    if(minutes.toString().length === 1){minutes = '0' + minutes};
     const formattedTime = `${hours}:${minutes}`;
     time.textContent = formattedTime;
 }
@@ -46,17 +46,42 @@ coordinatesRadio.addEventListener('click' ,function(e) {
 });
 
 // time API logic
-
+let zones; // array that stores list of valid time zones
 const timeZoneInput = document.getElementById('time-zone');
 timeZoneInput.addEventListener('click' , function(e){
-    getListOfZones();
+    zones = getListOfZones();
 });
+
+function updateZones() {
+    const datalist = document.getElementById('zoneList');
+
+            // Clear existing options
+            datalist.innerHTML = '';
+            console.log(zones);
+            // Filter the array based on user input
+            // const filteredZones = zones.filter(zone => zone.toLowerCase().includes(timeZoneInput.value.toLowerCase()));
+            // // Populate the datalist with filtered options
+            // filteredZones.forEach(zone => {
+            //     const option =document.createElement('option') ;
+            //     option.value = zone;
+            //     datalist.appendChild(option);
+            // });
+
+}
 
 async function getListOfZones() {
     const response = await fetch(`http://worldtimeapi.org/api/timezone`);
-            const data = await response.json();
-            console.log(data);
+    let myPromise = response.json();
+    myPromise.then((result) => {
+        // Accessing the array within the resolved object
+        const myArray = result;
+      
+        // Now you can use myArray as needed
+        console.log(myArray);
+      })
+            
 }
+
 
 let submitButton = document.querySelector('.submit');
 submitButton.addEventListener('click' , function(e){

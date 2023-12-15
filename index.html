@@ -16,7 +16,10 @@
 
         <div class="settings input-zone">
             <div class="enter-zone">
-                <label for="time-zone">Enter Time-Zone: </label><input id="time-zone"type="text" placeholder="Europe/Amsterdam">
+                <label for="time-zone">Enter Time-Zone: </label><input id="time-zone"type="text" list="zoneList" oninput="updateZones()" placeholder="Europe/Amsterdam">
+                <datalist id="zoneList">
+                    <!-- Options will be dynamically populated based on user input -->
+                </datalist>
             </div>
 
             <div class="enter-coordinates">
