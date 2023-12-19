@@ -30,21 +30,6 @@ if (currentTime){
     setInterval(setTime, 1000);
 }
 
-const timeZoneRadio = document.getElementById('zone');
-const coordinatesRadio = document.getElementById('coordinates');
-
-const zoneSpace = document.querySelector('.enter-zone');
-const coordinatesSpace = document.querySelector('.enter-coordinates');
-
-timeZoneRadio.addEventListener('click' ,function(e) {
-    zoneSpace.style.visibility = 'visible';
-    coordinatesSpace.style.visibility = 'hidden';
-});
-coordinatesRadio.addEventListener('click' ,function(e) {
-    coordinatesSpace.style.visibility = 'visible';
-    zoneSpace.style.visibility = 'hidden';
-});
-
 // time API logic
 let zones =  [
     'Europe/Andorra',
